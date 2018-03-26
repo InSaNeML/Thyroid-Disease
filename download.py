@@ -39,4 +39,4 @@ if __name__ == "__main__":
         file_id = sys.argv[1]
         # DESTINATION FILE ON YOUR DISK
         destination = sys.argv[2]
-        download_file_from_google_drive("1PMJEk3hT-_ziNhSPkU9BllLYASLzN7TL", "train.zip")
+        download_file_from_google_drive(file_id, destination)
