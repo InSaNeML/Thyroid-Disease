@@ -13,12 +13,20 @@ def create_model():
     model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)))
     #allowing maxpooling of image data
     model.add(layers.MaxPooling2D((2, 2)))
+
+
     model.add(layers.Conv2D(64, (3, 3), activation='relu'))
     #allowing maxpooling of image data
     model.add(layers.MaxPooling2D((2, 2)))
+
+
     model.add(layers.Conv2D(64, (3, 3), activation='relu'))
+
+
     #we need to flatten the image pixels to process them further
     model.add(layers.Flatten())
+
+    
     #the dense neural network model
     model.add(layers.Dense(64, activation='relu'))
     model.add(layers.Dense(13, activation='softmax')
