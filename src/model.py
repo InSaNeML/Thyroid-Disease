@@ -10,7 +10,7 @@ def create_model():
     
     #building a convolution network model for image data
     model = models.Sequential()
-    model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)))
+    model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(256, 256, 1)))
     #allowing maxpooling of image data
     model.add(layers.MaxPooling2D((2, 2)))
 
