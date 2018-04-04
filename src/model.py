@@ -1,6 +1,7 @@
 import keras
 from keras.layers import Dense, Conv2D, MaxPooling2D, Flatten
 from keras.models import Sequential
+from keras import regularizers
 
 def create_model():
 
@@ -10,21 +11,21 @@ def create_model():
         
     #building a convolution network model for image data
     model = Sequential()
-    model.add(Conv2D(32, (3, 3), activation='relu', input_shape=(128, 128, 3)))
+    model.add(Conv2D(128, (3, 3), activation='relu', kernel_regularizer = regularizers.l2(0.001), input_shape=(128, 128, 3)))
     #allowing maxpooling of image data
     model.add(MaxPooling2D((2, 2)))
 
-    model.add(Conv2D(64, (3, 3), activation='relu'))
+    model.add(Conv2D(256, (3, 3), kernel_regularizer = regularizers.l2(0.001), activation='relu'))
     #allowing maxpooling of image data
     model.add(MaxPooling2D((2, 2)))
 
-    model.add(Conv2D(64, (3, 3), activation='relu'))
+    model.add(Conv2D(256, (3, 3), kernel_regularizer = regularizers.l2(0.001), activation='relu'))
 
     #we need to flatten the image pixels to process them further
     model.add(Flatten())
     
     #the dense neural network model
-    model.add(Dense(64, activation='relu'))
+    model.add(Dense(64, kernel_regularizer = regularizers.l2(0.001), activation='relu'))
     model.add(Dense(14, activation='softmax'))
 
     #compile the model
