@@ -22,4 +22,4 @@ for i in range(int(len(csv_data)*0.7), int(len(csv_data))):
     dest = os.path.join(curr_dir, "img_data/validation", detected, image_name)
     shutil.copy(src, dest)
     if(i%300 == 0):
-        print(i," files have been copied to validation folder.")
+        print(i - int(len(csv_data)*0.7)," files have been copied to validation folder.")

@@ -35,7 +35,10 @@ validation_generator = validation_datagen.flow_from_directory(validation_dir,
 	target_size = (128,128),
 	batch_size = 10,
 	class_mode = "categorical")
-epochs = input("Enter number of epochs you want to train the model on:")
+
+#epochs = input("Enter number of epochs you want to train the model on:")
+
+epochs = 10
 epochs = int(epochs)
 print("Fitting data to Conv2d D model.")
 history = model.fit_generator(train_generator,
