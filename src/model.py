@@ -11,7 +11,7 @@ def create_model():
         
     #building a convolution network model for image data
     model = Sequential()
-    model.add(Conv2D(128, (3, 3), activation='relu', kernel_regularizer = regularizers.l2(0.001), input_shape=(128, 128, 3)))
+    model.add(Conv2D(128, (3, 3), activation='relu', kernel_regularizer = regularizers.l2(0.001), input_shape=(512, 512, 3)))
     #allowing maxpooling of image data
     model.add(MaxPooling2D((2, 2)))
 
@@ -29,6 +29,6 @@ def create_model():
     model.add(Dense(14, activation='softmax'))
 
     #compile the model
-    model.compile(optimizer="rmsprop", loss="categorical_crossentropy", metrics=["acc"])
+    model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=["acc"])
     print(model.summary())
     return model
