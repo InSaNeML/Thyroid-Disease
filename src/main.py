@@ -27,13 +27,13 @@ train_datagen = ImageDataGenerator(rescale = 1.0/255,
 validation_datagen = ImageDataGenerator(rescale = 1.0/255)
 
 train_generator = train_datagen.flow_from_directory(train_dir,
-	target_size = (512,512),
-	batch_size = 50,
+	target_size = (256,256),
+	batch_size = 10,
 	class_mode = "categorical")
 
 validation_generator = validation_datagen.flow_from_directory(validation_dir,
-	target_size = (512,512),
-	batch_size = 50,
+	target_size = (256,256),
+	batch_size = 10,
 	class_mode = "categorical")
 
 #epochs = input("Enter number of epochs you want to train the model on:")
