@@ -16,9 +16,9 @@ model = create_model()
 
 print("Generating image models.This may take some time.")
 train_datagen = ImageDataGenerator(rescale = 1.0/255,
-	rotation_range=45,
-	width_shift_range=0.3,
-	height_shift_range=0.3,
+	rotation_range=20,
+	width_shift_range=0.2,
+	height_shift_range=0.2,
 	shear_range=0.2,
 	zoom_range=0.2,
 	horizontal_flip=True,
@@ -27,26 +27,28 @@ train_datagen = ImageDataGenerator(rescale = 1.0/255,
 validation_datagen = ImageDataGenerator(rescale = 1.0/255)
 
 train_generator = train_datagen.flow_from_directory(train_dir,
-	target_size = (256,256),
-	batch_size = 10,
+	target_size = (512,512),
+	color_mode = "grayscale",
+	shuffle = "True",
+	batch_size = 32,
 	class_mode = "categorical")
 
 validation_generator = validation_datagen.flow_from_directory(validation_dir,
-	target_size = (256,256),
-	batch_size = 10,
+	target_size = (512,512),
+	color_mode = "grayscale",
+	shuffle = "True",
+	batch_size = 32,
 	class_mode = "categorical")
 
 #epochs = input("Enter number of epochs you want to train the model on:")
 
-epochs = 30
+epochs = 100
 epochs = int(epochs)
 print("Fitting data to Conv2d D model.")
 history = model.fit_generator(train_generator,
-	steps_per_epoch= 200,
+	steps_per_epoch= 600,
 	epochs = epochs,
-	validation_data = validation_generator,
-	validation_steps = 50)
-
+	validation_data = validation_generator)
 
 #Ploting the curves
 acc = history.history['acc']

@@ -1,4 +1,6 @@
+#import operating system modules to transfer files
 import os, shutil
+#import pandas and numpy for reading csv files
 import pandas as pd
 import numpy as np
 
@@ -23,3 +25,5 @@ for i in range(int(len(csv_data)*0.7), int(len(csv_data))):
     shutil.copy(src, dest)
     if(i%300 == 0):
         print(i - int(len(csv_data)*0.7)," files have been copied to validation folder.")
+
+shutil.rmtree("data")

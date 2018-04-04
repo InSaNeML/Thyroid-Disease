@@ -11,21 +11,29 @@ def create_model():
         
     #building a convolution network model for image data
     model = Sequential()
-    model.add(Conv2D(64, (3, 3), activation='relu', kernel_regularizer = regularizers.l2(0.001), input_shape=(256, 256, 3)))
+    model.add(Conv2D(64, (3, 3), activation='relu', input_shape=(256, 256, 1)))
     #allowing maxpooling of image data
     model.add(MaxPooling2D((4, 4)))
 
-    model.add(Conv2D(128, (3, 3), kernel_regularizer = regularizers.l2(0.001), activation='relu'))
+    model.add(Conv2D(128, (3, 3), activation='relu'))
     #allowing maxpooling of image data
     model.add(MaxPooling2D((4, 4)))
 
-    model.add(Conv2D(128, (3, 3), kernel_regularizer = regularizers.l2(0.001), activation='relu'))
+    model.add(Conv2D(128, (3, 3), activation='relu'))
+    #allowing maxpooling of image data
+    model.add(MaxPooling2D((4, 4)))
+
+    model.add(Conv2D(128, (3, 3), activation='relu'))
+    #allowing maxpooling of image data
+    model.add(MaxPooling2D((4, 4)))
+
+    model.add(Conv2D(128, (3, 3), activation='relu'))
 
     #we need to flatten the image pixels to process them further
     model.add(Flatten())
     
     #the dense neural network model
-    model.add(Dense(64, kernel_regularizer = regularizers.l2(0.001), activation='relu'))
+    model.add(Dense(64, activation='relu'))
     model.add(Dense(14, activation='softmax'))
 
     #compile the model
