@@ -1,5 +1,6 @@
 import os, shutil
 
+os.mkdir("img_data")
 os.chdir("img_data")
 print(os.getcwd())
 

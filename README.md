@@ -6,4 +6,4 @@ Steps to run this project :
 2. unzip destination && mv train_ data
 3. python make_folder.py
 4. python transfer.py
-5. 
+5. python main.py
