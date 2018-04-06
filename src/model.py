@@ -15,9 +15,9 @@ def create_model():
     #allowing maxpooling of image data
     model.add(MaxPooling2D((4, 4)))
 
-    #model.add(Conv2D(128, (3, 3), activation='relu'))
+    model.add(Conv2D(128, (3, 3), activation='relu'))
     #allowing maxpooling of image data
-    #model.add(MaxPooling2D((4, 4)))
+    model.add(MaxPooling2D((4, 4)))
 
     #model.add(Conv2D(128, (3, 3), activation='relu'))
     #allowing maxpooling of image data
