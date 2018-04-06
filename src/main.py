@@ -16,11 +16,11 @@ model = create_model()
 
 print("Generating image models.This may take some time.")
 train_datagen = ImageDataGenerator(rescale = 1.0/255,
-	rotation_range=20,
+	rotation_range=40,
 	width_shift_range=0.2,
 	height_shift_range=0.2,
 	shear_range=0.2,
-	zoom_range=0.2,
+	zoom_range=0.3,
 	horizontal_flip=True,
 	fill_mode='nearest')
 
@@ -42,11 +42,11 @@ validation_generator = validation_datagen.flow_from_directory(validation_dir,
 
 #epochs = input("Enter number of epochs you want to train the model on:")
 
-epochs = 1
+epochs = 20
 epochs = int(epochs)
 print("Fitting data to Conv2d D model.")
 history = model.fit_generator(train_generator,
-	steps_per_epoch= 20,
+	steps_per_epoch= 100,
 	epochs = epochs,
 	validation_data = validation_generator)
 
