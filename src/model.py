@@ -17,20 +17,20 @@ def create_model():
 
     model.add(Conv2D(64, (4, 4), kernel_regularizer=regularizers.l2(0.01), activation='relu'))
     #allowing maxpooling of image data
-    model.add(MaxPooling2D((4, 4)))
+    #model.add(MaxPooling2D((4, 4)))
 
     #model.add(Conv2D(128, (3, 3), activation='relu'))
     #allowing maxpooling of image data
     #model.add(MaxPooling2D((4, 4)))
 
-    model.add(Conv2D(32, (4, 4), kernel_regularizer=regularizers.l2(0.01), activation='relu'))
-    model.add(MaxPooling2D((4, 4)))
+    #model.add(Conv2D(32, (4, 4), kernel_regularizer=regularizers.l2(0.01), activation='relu'))
+    #model.add(MaxPooling2D((4, 4)))
     #we need to flatten the image pixels to process them further
     model.add(Flatten())
     
     #the dense neural network model
     model.add(Dense(64, kernel_regularizer=regularizers.l2(0.01), activation='relu'))
-    model.add(Dense(28, kernel_regularizer=regularizers.l2(0.01), activation='softmax'))
+    model.add(Dense(28, activation='softmax'))
 
     #compile the model
     model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=["acc"])
