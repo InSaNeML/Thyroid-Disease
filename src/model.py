@@ -11,11 +11,11 @@ def create_model():
         
     #building a convolution network model for image data
     model = Sequential()
-    model.add(Conv2D(64, (3, 3), activation='relu', input_shape=(128, 128, 1)))
+    model.add(Conv2D(32, (3, 3), activation='relu', kernel_regularizer=regularizers.l2(0.01), input_shape=(128, 128, 1)))
     #allowing maxpooling of image data
     model.add(MaxPooling2D((4, 4)))
 
-    model.add(Conv2D(128, (3, 3), activation='relu'))
+    model.add(Conv2D(64, (3, 3), kernel_regularizer=regularizers.l2(0.01), activation='relu'))
     #allowing maxpooling of image data
     model.add(MaxPooling2D((4, 4)))
 
@@ -23,14 +23,14 @@ def create_model():
     #allowing maxpooling of image data
     #model.add(MaxPooling2D((4, 4)))
 
-    model.add(Conv2D(128, (3, 3), activation='relu'))
+    model.add(Conv2D(64, (3, 3), kernel_regularizer=regularizers.l2(0.01), activation='relu'))
 
     #we need to flatten the image pixels to process them further
     model.add(Flatten())
     
     #the dense neural network model
-    model.add(Dense(64, activation='relu'))
-    model.add(Dense(28, activation='softmax'))
+    model.add(Dense(64, kernel_regularizer=regularizers.l2(0.01), activation='relu'))
+    model.add(Dense(28, kernel_regularizer=regularizers.l2(0.01), activation='softmax'))
 
     #compile the model
     model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=["acc"])
