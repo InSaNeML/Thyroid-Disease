@@ -29,14 +29,14 @@ validation_datagen = ImageDataGenerator(rescale = 1.0/255)
 train_generator = train_datagen.flow_from_directory(train_dir,
 	target_size = (256, 256),
 	color_mode = "grayscale",
-	shuffle = "True",
+	shuffle = "False",
 	batch_size = 256,
 	class_mode = "categorical")
 
 validation_generator = validation_datagen.flow_from_directory(validation_dir,
 	target_size = (256, 256),
 	color_mode = "grayscale",
-	shuffle = "True",
+	shuffle = "False",
 	batch_size = 256,
 	class_mode = "categorical")
 
