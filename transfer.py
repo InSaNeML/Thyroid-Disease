@@ -6,7 +6,7 @@ import numpy as np
 
 csv_data = pd.read_csv("csv_data/train.csv", usecols=['row_id', 'view_position', 'image_name', 'detected'])
 
-for i in range(int(len(csv_data)*0.6)):
+for i in range(int(len(csv_data)*0.5)):
     image_name = csv_data.loc[i,"image_name"]
     detected = csv_data.loc[i, "detected"]
     view_position = str(csv_data.loc[i, "view_position"])
@@ -18,7 +18,7 @@ for i in range(int(len(csv_data)*0.6)):
     if(i%300 == 0):
         print(i," files have been copied to train folder.")
 
-for i in range(int(len(csv_data)*0.6), int(len(csv_data)*0.8)):
+for i in range(int(len(csv_data)*0.5), int(len(csv_data)*0.8)):
     image_name = csv_data.loc[i,"image_name"]
     detected = csv_data.loc[i, "detected"]
     view_position = str(csv_data.loc[i, "view_position"])
@@ -28,6 +28,6 @@ for i in range(int(len(csv_data)*0.6), int(len(csv_data)*0.8)):
     dest = os.path.join(curr_dir, "img_data/validation", view_position+detected, image_name)
     shutil.copy(src, dest)
     if(i%300 == 0):
-        print(i - int(len(csv_data)*0.7)," files have been copied to validation folder.")
+        print(i - int(len(csv_data)*0.5)," files have been copied to validation folder.")
 
 shutil.rmtree("../data")
