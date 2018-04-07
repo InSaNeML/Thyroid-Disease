@@ -11,17 +11,17 @@ def create_model():
         
     #building a convolution network model for image data
     model = Sequential()
-    model.add(Conv2D(128, (4, 4), activation='relu', input_shape=(256, 256, 1)))
+    model.add(Conv2D(32, (2, 2), activation='relu', input_shape=(256, 256, 1)))
     #allowing maxpooling of image data
-    model.add(MaxPooling2D(4, 4))
+    model.add(MaxPooling2D(2, 2))
 
-    model.add(Conv2D(64, (4, 4), activation='relu'))
+    model.add(Conv2D(64, (2, 2), activation='relu'))
     #allowing maxpooling of image data
-    #model.add(MaxPooling2D((4, 4)))
+    model.add(MaxPooling2D((2, 2)))
 
-    #model.add(Conv2D(128, (3, 3), activation='relu'))
+    model.add(Conv2D(64, (2, 2), activation='relu'))
     #allowing maxpooling of image data
-    #model.add(MaxPooling2D((4, 4)))
+    model.add(MaxPooling2D((2, 2)))
 
     #model.add(Conv2D(32, (4, 4), kernel_regularizer=regularizers.l2(0.01), activation='relu'))
     #model.add(MaxPooling2D((4, 4)))
@@ -29,7 +29,7 @@ def create_model():
     model.add(Flatten())
     
     #the dense neural network model
-    model.add(Dense(64, kernel_regularizer=regularizers.l2(0.01), activation='relu'))
+    model.add(Dense(128, activation='relu'))
     model.add(Dense(28, activation='softmax'))
 
     #compile the model
