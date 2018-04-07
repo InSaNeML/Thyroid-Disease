@@ -11,7 +11,7 @@ def create_model():
         
     #building a convolution network model for image data
     model = Sequential()
-    model.add(Conv2D(128, (4, 4), activation='relu', kernel_regularizer=regularizers.l2(0.01), input_shape=(128, 128, 1)))
+    model.add(Conv2D(128, (4, 4), activation='relu', kernel_regularizer=regularizers.l2(0.01), input_shape=(512, 512, 1)))
     #allowing maxpooling of image data
     model.add(MaxPooling2D(4, 4))
 

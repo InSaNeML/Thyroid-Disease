@@ -27,14 +27,14 @@ train_datagen = ImageDataGenerator(rescale = 1.0/255,
 validation_datagen = ImageDataGenerator(rescale = 1.0/255)
 
 train_generator = train_datagen.flow_from_directory(train_dir,
-	target_size = (128, 128),
+	target_size = (512, 512),
 	color_mode = "grayscale",
 	shuffle = "True",
 	batch_size = 32,
 	class_mode = "categorical")
 
 validation_generator = validation_datagen.flow_from_directory(validation_dir,
-	target_size = (128, 128),
+	target_size = (512, 512),
 	color_mode = "grayscale",
 	shuffle = "True",
 	batch_size = 32,
@@ -42,7 +42,7 @@ validation_generator = validation_datagen.flow_from_directory(validation_dir,
 
 #epochs = input("Enter number of epochs you want to train the model on:")
 
-epochs = 1
+epochs = 100
 epochs = int(epochs)
 print("Fitting data to Conv2d D model.")
 history = model.fit_generator(train_generator,
