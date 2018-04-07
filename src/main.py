@@ -46,7 +46,7 @@ epochs = 1
 epochs = int(epochs)
 print("Fitting data to Conv2d D model.")
 history = model.fit_generator(train_generator,
-	steps_per_epoch= 50,
+	steps_per_epoch= 200,
 	epochs = epochs,
 	validation_data = validation_generator)
 
