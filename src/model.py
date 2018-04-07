@@ -33,6 +33,6 @@ def create_model():
     model.add(Dense(28, kernel_regularizer=regularizers.l2(0.01), activation='softmax'))
 
     #compile the model
-    model.compile(optimizer="adagrad", loss="categorical_crossentropy", metrics=["acc"])
+    model.compile(optimizer="adadelta", loss="categorical_crossentropy", metrics=["acc"])
     print(model.summary())
     return model
