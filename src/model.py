@@ -11,19 +11,19 @@ def create_model():
         
     #building a convolution network model for image data
     model = Sequential()
-    model.add(Conv2D(32, (10, 10), activation='relu', kernel_regularizer=regularizers.l2(0.01), input_shape=(512, 512, 1)))
+    model.add(Conv2D(32, (4, 4), activation='relu', kernel_regularizer=regularizers.l2(0.01), input_shape=(512, 512, 1)))
     #allowing maxpooling of image data
-    model.add(MaxPooling2D((4, 4)))
+    model.add(MaxPooling2D(4, 4))
 
-    model.add(Conv2D(64, (10, 10), kernel_regularizer=regularizers.l2(0.01), activation='relu'))
+    model.add(Conv2D(32, (8, 8), kernel_regularizer=regularizers.l2(0.01), activation='relu'))
     #allowing maxpooling of image data
-    model.add(MaxPooling2D((4, 4)))
+    model.add(MaxPooling2D((8, 8)))
 
     #model.add(Conv2D(128, (3, 3), activation='relu'))
     #allowing maxpooling of image data
     #model.add(MaxPooling2D((4, 4)))
 
-    model.add(Conv2D(64, (10, 10), kernel_regularizer=regularizers.l2(0.01), activation='relu'))
+    model.add(Conv2D(32, (8, 8), kernel_regularizer=regularizers.l2(0.01), activation='relu'))
 
     #we need to flatten the image pixels to process them further
     model.add(Flatten())
